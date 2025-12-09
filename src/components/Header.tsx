@@ -45,10 +45,10 @@ export default function Header() {
         <div className="main-container flex justify-end items-center gap-4 text-sm">
           <div className="flex items-center gap-1">
             <FiUsers className="text-xs" />
-            <span>오늘 <strong>{visitors.today.toLocaleString()}</strong></span>
+            <span>오늘 <strong>{(10000 + visitors.today).toLocaleString()}</strong></span>
           </div>
           <div className="flex items-center gap-1">
-            <span>전체 <strong>{visitors.total.toLocaleString()}</strong></span>
+            <span>전체 <strong>{(10000 + visitors.total).toLocaleString()}</strong></span>
           </div>
         </div>
       </div>
