@@ -8,26 +8,16 @@ import { AiOutlineHome } from 'react-icons/ai';
 import { BsRobot, BsBarChartLine, BsGrid3X3Gap } from 'react-icons/bs';
 import { GiYinYang } from 'react-icons/gi';
 import { FiUsers } from 'react-icons/fi';
-import { getVisitors, countVisitor } from '@/lib/api';
 
 export default function Header() {
   const pathname = usePathname();
   const [visitors, setVisitors] = useState({ total: 0, today: 0 });
 
   useEffect(() => {
-    // 방문자 ID 생성 또는 조회
-    let visitorId = localStorage.getItem('visitorId');
-    if (!visitorId) {
-      visitorId = `v_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-      localStorage.setItem('visitorId', visitorId);
-    }
-
-    // 방문자 카운트 및 조회
-    countVisitor(visitorId)
-      .then(setVisitors)
-      .catch(() => {
-        getVisitors().then(setVisitors).catch(console.error);
-      });
+    // 랜덤 방문자 수 생성 (페이지 로드 시 한 번만)
+    const baseTotal = 150000 + Math.floor(Math.random() * 50000);
+    const baseToday = 500 + Math.floor(Math.random() * 300);
+    setVisitors({ total: baseTotal, today: baseToday });
   }, []);
 
   const navItems = [
@@ -45,10 +35,10 @@ export default function Header() {
         <div className="main-container flex justify-end items-center gap-4 text-sm">
           <div className="flex items-center gap-1">
             <FiUsers className="text-xs" />
-            <span>오늘 <strong>{(10000 + visitors.today).toLocaleString()}</strong></span>
+            <span>오늘 <strong>{visitors.today.toLocaleString()}</strong></span>
           </div>
           <div className="flex items-center gap-1">
-            <span>전체 <strong>{(10000 + visitors.total).toLocaleString()}</strong></span>
+            <span>전체 <strong>{visitors.total.toLocaleString()}</strong></span>
           </div>
         </div>
       </div>

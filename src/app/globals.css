@@ -497,6 +497,12 @@ body {
   color: var(--primary-dark);
 }
 
+/* 푸터에서는 전역 링크 색상을 적용하지 않고 푸터 색상(상속) 사용 */
+.footer a,
+.footer a:hover {
+  color: inherit;
+}
+
 /* 밑줄 애니메이션 링크 */
 .link-animated {
   text-decoration: none;

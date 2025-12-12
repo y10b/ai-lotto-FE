@@ -24,27 +24,27 @@ export default function Footer() {
 
           <nav aria-label="서비스 메뉴">
             <h3 className="text-lg font-bold mb-4">서비스</h3>
-            <ul className="space-y-3 text-sm opacity-80">
+            <ul className="space-y-3 text-sm">
               <li>
-                <Link href="/deep-learning-lotto" className="flex items-center gap-2 text-white hover:opacity-100 transition">
+                <Link href="/deep-learning-lotto" className="flex items-center gap-2 text-yellow-300 hover:text-yellow-100 transition">
                   <BsRobot />
                   AI 딥러닝 분석
                 </Link>
               </li>
               <li>
-                <Link href="/statistics-lotto" className="flex items-center gap-2 text-white hover:opacity-100 transition">
+                <Link href="/statistics-lotto" className="flex items-center gap-2 text-yellow-300 hover:text-yellow-100 transition">
                   <BsBarChartLine />
                   통계 기반 분석
                 </Link>
               </li>
               <li>
-                <Link href="/pattern-lotto" className="flex items-center gap-2 text-white hover:opacity-100 transition">
+                <Link href="/pattern-lotto" className="flex items-center gap-2 text-yellow-300 hover:text-yellow-100 transition">
                   <BsGrid3X3Gap />
                   패턴 분석
                 </Link>
               </li>
               <li>
-                <Link href="/saju-lotto" className="flex items-center gap-2 text-white hover:opacity-100 transition">
+                <Link href="/saju-lotto" className="flex items-center gap-2 text-yellow-300 hover:text-yellow-100 transition">
                   <GiYinYang />
                   사주 기반 분석
                 </Link>
@@ -54,13 +54,13 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-bold mb-4">관련 서비스</h3>
-            <ul className="space-y-3 text-sm opacity-80">
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="https://www.sajugotgan.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white hover:opacity-100 transition"
+                  className="flex items-center gap-2 text-yellow-300 hover:text-yellow-100 transition"
                 >
                   <FiExternalLink />
                   사주곳간 - AI 사주 분석

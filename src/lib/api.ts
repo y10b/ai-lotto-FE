@@ -86,26 +86,6 @@ export async function getMeta(): Promise<MetaResponse> {
   return res.json();
 }
 
-export interface VisitorResponse {
-  total: number;
-  today: number;
-}
-
-export async function getVisitors(): Promise<VisitorResponse> {
-  const res = await fetch(`${API_BASE_URL}/api/visitors`);
-  if (!res.ok) throw new Error('방문자 조회 실패');
-  return res.json();
-}
-
-export async function countVisitor(visitorId: string): Promise<VisitorResponse> {
-  const res = await fetch(`${API_BASE_URL}/api/visitors/count?visitor_id=${visitorId}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  if (!res.ok) throw new Error('방문자 카운트 실패');
-  return res.json();
-}
-
 export interface SajuRequest {
   year: number;
   month: number;
