@@ -14,10 +14,21 @@ export default function Header() {
   const [visitors, setVisitors] = useState({ total: 0, today: 0 });
 
   useEffect(() => {
-    // 랜덤 방문자 수 생성 (페이지 로드 시 한 번만)
-    const baseTotal = 150000 + Math.floor(Math.random() * 50000);
-    const baseToday = 500 + Math.floor(Math.random() * 300);
-    setVisitors({ total: baseTotal, today: baseToday });
+    // 세션 스토리지에서 방문자 수 확인 (같은 유저는 동일한 값 유지)
+    const STORAGE_KEY = 'lotto_visitors';
+    const stored = sessionStorage.getItem(STORAGE_KEY);
+
+    if (stored) {
+      // 저장된 값이 있으면 그대로 사용
+      setVisitors(JSON.parse(stored));
+    } else {
+      // 없으면 새로 생성하고 저장
+      const baseTotal = 150000 + Math.floor(Math.random() * 50000);
+      const baseToday = 500 + Math.floor(Math.random() * 300);
+      const newVisitors = { total: baseTotal, today: baseToday };
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(newVisitors));
+      setVisitors(newVisitors);
+    }
   }, []);
 
   const navItems = [
